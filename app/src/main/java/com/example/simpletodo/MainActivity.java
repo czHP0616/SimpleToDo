@@ -64,19 +64,9 @@ public class MainActivity extends AppCompatActivity {
                 itemsAdapter.notifyItemInserted(items.size()-1);
                 addItem.setText("");
                 Toast.makeText(getApplicationContext(), "Item was added!", Toast.LENGTH_SHORT).show();
+                saveItems();
             }
         });
-    }
-
-    public void addNewItem(android.view.View v){
-        String newItem = addItem.getText().toString();
-        //Add item to the model
-        items.add(newItem);
-        //Notify adapter
-        itemsAdapter.notifyItemInserted(items.size()-1);
-        addItem.setText("");
-        Toast.makeText(getApplicationContext(), "Item was added!", Toast.LENGTH_SHORT).show();
-        saveItems();
     }
 
     private File getDataFile(){
@@ -89,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             items = new ArrayList<>(FileUtils.readLines(getDataFile(), Charset.defaultCharset()));
         }catch (IOException e){
             Log.e("MainActivity", "Error reading items", e);
-            items= new ArrayList<>();
+            items = new ArrayList<>();
         }
     }
 
