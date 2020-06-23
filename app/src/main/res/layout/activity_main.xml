@@ -17,7 +17,6 @@
         android:layout_marginBottom="0dp"
         android:layout_marginRight="0dp"
         android:text="Add"
-        android:onClick="addNewItem"
         />
 
     <EditText
