@@ -25,6 +25,8 @@ public class EditActivity extends AppCompatActivity {
 
         etItem.setText(getIntent().getStringExtra(MainActivity.KEY_ITEM_TEXT));
 
+        //click listener for the save button
+        //will send the updated text back to the MainActivity page
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){

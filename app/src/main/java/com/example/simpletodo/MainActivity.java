@@ -22,6 +22,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+//Controls main page of app where the user can view the to do list
 public class MainActivity extends AppCompatActivity {
 
     public static final String KEY_ITEM_TEXT = "item_text";
@@ -30,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     List<String> items;
 
-    Button addButton;
-    EditText addItem;
-    RecyclerView itemList;
+    Button addButton; //button to add an item
+    EditText addItem; //text field to write a new item
+    RecyclerView itemList; //list of to do items
     ItemsAdapter itemsAdapter;
 
     @Override
@@ -46,28 +47,27 @@ public class MainActivity extends AppCompatActivity {
 
         loadItems();
 
+        //long click listener for each item in the to do list
+        //will delete the item that is long clicked.
         ItemsAdapter.OnLongClickListener onLongClickListener = new ItemsAdapter.OnLongClickListener(){
             @Override
             public void onItemLongClicked(int position) {
                 items.remove(position);
-                //Notify the adapter
                 itemsAdapter.notifyItemRemoved(position);
                 Toast.makeText(getApplicationContext(), "Item was removed!", Toast.LENGTH_SHORT).show();
                 saveItems();
             }
         };
 
+        //click listener for each item in the to do list
+        //will bring up a screen where user can edit the item
         ItemsAdapter.OnClickListener onClickListener = new ItemsAdapter.OnClickListener(){
             @Override
             public void onItemClicked(int position) {
-                //create new activity
                 Intent i = new Intent(MainActivity.this, EditActivity.class);
-
-                //pass data being edited
                 i.putExtra(KEY_ITEM_TEXT, items.get(position));
                 i.putExtra(KEY_ITEM_POSITION, position);
 
-                //display activity
                 startActivityForResult(i, EDIT_TEXT_CODE);
             }
         };
@@ -76,12 +76,13 @@ public class MainActivity extends AppCompatActivity {
         itemList.setAdapter(itemsAdapter);
         itemList.setLayoutManager(new LinearLayoutManager(this));
 
+        //click listener for the add button.
+        //will add the item to the list
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 String newItem = addItem.getText().toString();
                 items.add(newItem);
 
-                //Notify adapter
                 itemsAdapter.notifyItemInserted(items.size()-1);
 
                 addItem.setText("");
@@ -91,7 +92,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //handle the result of the edit activity
+    //handle the result of the EditActivity
+    //Update the item on the to do list with the new text
     @SuppressLint("MissingSuperCall")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
