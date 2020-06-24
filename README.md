@@ -20,7 +20,7 @@ The following **stretch** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [ ] List anything else that you can get done to improve the app functionality! (N/A)
 
 ## Video Walkthrough
 
@@ -36,7 +36,7 @@ N/A
 
 ## License
 
-    Copyright [2020] 
+    Copyright [2020] [Nina Tang]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
