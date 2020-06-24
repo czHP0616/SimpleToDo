@@ -18,9 +18,7 @@ The following **stretch** features are implemented:
 
 * [x] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list
 
-The following **additional** features are implemented:
-
-* [ ] List anything else that you can get done to improve the app functionality!
+No **additional** features were implemented.
 
 ## Video Walkthrough
 
@@ -36,7 +34,7 @@ N/A
 
 ## License
 
-    Copyright [2020] 
+    Copyright [2020] [Nina Tang]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
